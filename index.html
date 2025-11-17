@@ -1,0 +1,51 @@
+---
+layout: default
+title: 首页
+---
+
+<div class="home-page">
+    <section class="hero">
+        <h2>欢迎来到我的厨房 🍳</h2>
+        <p>这里记录着我尝试过的每一道美味，希望也能给你带来灵感。</p>
+    </section>
+
+    <section class="recipes-grid">
+        <h2>最新食谱</h2>
+        <div class="recipes-list">
+            {% for recipe in site.recipes limit: 12 %}
+            <article class="recipe-card">
+                {% if recipe.image %}
+                <div class="recipe-card-image">
+                    <a href="{{ recipe.url | relative_url }}">
+                        <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}">
+                    </a>
+                </div>
+                {% endif %}
+                <div class="recipe-card-content">
+                    <h3 class="recipe-card-title">
+                        <a href="{{ recipe.url | relative_url }}">{{ recipe.title }}</a>
+                    </h3>
+                    {% if recipe.description %}
+                    <p class="recipe-card-description">{{ recipe.description }}</p>
+                    {% endif %}
+                    <div class="recipe-card-meta">
+                        {% if recipe.date %}
+                        <span>{{ recipe.date | date: "%Y-%m-%d" }}</span>
+                        {% endif %}
+                        {% if recipe.servings %}
+                        <span>{{ recipe.servings }} 人份</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    {% if site.recipes.size > 12 %}
+    <div class="view-all">
+        <a href="{{ '/recipes' | relative_url }}" class="btn-primary">查看所有食谱 →</a>
+    </div>
+    {% endif %}
+</div>
+

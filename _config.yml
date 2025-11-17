@@ -1,0 +1,44 @@
+# Jekyll 配置文件
+title: "Yi's Kitchen"
+description: "个人食谱收藏 - 记录每一道美味"
+url: "" # 如果使用 GitHub Pages，格式为: https://username.github.io
+baseurl: "" # 如果仓库名不是 username.github.io，填写仓库名，如: /yimskitchen
+
+# 作者信息
+author:
+  name: "Yi"
+  email: ""
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .gitignore
+
+# 集合：食谱
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:name/
+
+# 默认值
+defaults:
+  - scope:
+      path: ""
+      type: "recipes"
+    values:
+      layout: "recipe"
+      author: "Yi"
+
+# 分页
+paginate: 10
+paginate_path: "/page:num/"
+

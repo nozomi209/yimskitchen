@@ -1,0 +1,84 @@
+---
+layout: default
+---
+
+<article class="recipe-page">
+    <header class="recipe-header">
+        <h1 class="recipe-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <p class="recipe-subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        <div class="recipe-meta">
+            {% if page.date %}
+            <span class="meta-item">📅 {{ page.date | date: "%Y年%m月%d日" }}</span>
+            {% endif %}
+            {% if page.servings %}
+            <span class="meta-item">👥 {{ page.servings }} 人份</span>
+            {% endif %}
+            {% if page.prep_time %}
+            <span class="meta-item">⏱️ 准备: {{ page.prep_time }}</span>
+            {% endif %}
+            {% if page.cook_time %}
+            <span class="meta-item">🔥 烹饪: {{ page.cook_time }}</span>
+            {% endif %}
+        </div>
+    </header>
+
+    {% if page.image %}
+    <div class="recipe-image">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="recipe-content">
+        {% if page.description %}
+        <div class="recipe-description">
+            <p>{{ page.description }}</p>
+        </div>
+        {% endif %}
+
+        <div class="recipe-details">
+            {% if page.ingredients %}
+            <section class="ingredients">
+                <h2>🥘 食材</h2>
+                <ul>
+                    {% for ingredient in page.ingredients %}
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            {% if page.steps %}
+            <section class="steps">
+                <h2>👨‍🍳 步骤</h2>
+                <ol>
+                    {% for step in page.steps %}
+                    <li>{{ step }}</li>
+                    {% endfor %}
+                </ol>
+            </section>
+            {% endif %}
+
+            {% if content %}
+            <section class="recipe-body">
+                {{ content }}
+            </section>
+            {% endif %}
+        </div>
+
+        {% if page.tags %}
+        <div class="recipe-tags">
+            <span>标签：</span>
+            {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <nav class="recipe-nav">
+        <a href="{{ '/' | relative_url }}" class="btn-back">← 返回首页</a>
+    </nav>
+</article>
+

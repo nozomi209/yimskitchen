@@ -1,0 +1,46 @@
+---
+layout: default
+title: 所有食谱
+---
+
+<div class="recipes-page">
+    <h1>所有食谱</h1>
+    
+    <div class="recipes-list">
+        {% for recipe in site.recipes %}
+        <article class="recipe-card">
+            {% if recipe.image %}
+            <div class="recipe-card-image">
+                <a href="{{ recipe.url | relative_url }}">
+                    <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}">
+                </a>
+            </div>
+            {% endif %}
+            <div class="recipe-card-content">
+                <h3 class="recipe-card-title">
+                    <a href="{{ recipe.url | relative_url }}">{{ recipe.title }}</a>
+                </h3>
+                {% if recipe.description %}
+                <p class="recipe-card-description">{{ recipe.description }}</p>
+                {% endif %}
+                <div class="recipe-card-meta">
+                    {% if recipe.date %}
+                    <span>{{ recipe.date | date: "%Y-%m-%d" }}</span>
+                    {% endif %}
+                    {% if recipe.servings %}
+                    <span>{{ recipe.servings }} 人份</span>
+                    {% endif %}
+                    {% if recipe.tags %}
+                    <div class="recipe-card-tags">
+                        {% for tag in recipe.tags %}
+                        <span class="tag-small">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
