@@ -1,12 +1,12 @@
 # Jekyll 配置文件
-title: "Yi's Kitchen"
-description: "个人食谱收藏 - 记录每一道美味"
+title: "Yim's Kitchen"
+description: "Yim和他的小伙伴在2610的创作记录！"
 url: "https://nozomi209.github.io"
 baseurl: "/yimskitchen"
 
 # 作者信息
 author:
-  name: "Yi"
+  name: "Yim"
   email: ""
 
 # 插件
