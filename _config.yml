@@ -1,8 +1,8 @@
 # Jekyll 配置文件
 title: "Yi's Kitchen"
 description: "个人食谱收藏 - 记录每一道美味"
-url: "" # 如果使用 GitHub Pages，格式为: https://username.github.io
-baseurl: "" # 如果仓库名不是 username.github.io，填写仓库名，如: /yimskitchen
+url: "https://nozomi209.github.io"
+baseurl: "/yimskitchen"
 
 # 作者信息
 author:
